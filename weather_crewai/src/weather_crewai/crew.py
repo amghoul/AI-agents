@@ -20,16 +20,16 @@ class WeatherCrewai():
     # If you would like to add tools to your agents, you can learn more about it here:
     # https://docs.crewai.com/concepts/agents#agent-tools
     @agent
-    def researcher(self) -> Agent:
+    def weather_agent(self) -> Agent:  # Changed from 'researcher' to 'weather_agent'
         return Agent(
-            config=self.agents_config['researcher'], # type: ignore[index]
+            config=self.agents_config['weather_agent'], 
             verbose=True
         )
 
     @agent
-    def reporting_analyst(self) -> Agent:
+    def clothing_advisor(self) -> Agent:
         return Agent(
-            config=self.agents_config['reporting_analyst'], # type: ignore[index]
+            config=self.agents_config['clothing_advisor'], # type: ignore[index]
             verbose=True
         )
 
@@ -37,15 +37,15 @@ class WeatherCrewai():
     # task dependencies, and task callbacks, check out the documentation:
     # https://docs.crewai.com/concepts/tasks#overview-of-a-task
     @task
-    def research_task(self) -> Task:
+    def weather_task(self) -> Task:
         return Task(
-            config=self.tasks_config['research_task'], # type: ignore[index]
+            config=self.tasks_config['weather_task'], # type: ignore[index]
         )
 
     @task
-    def reporting_task(self) -> Task:
+    def clothing_task(self) -> Task:
         return Task(
-            config=self.tasks_config['reporting_task'], # type: ignore[index]
+            config=self.tasks_config['clothing_task'], # type: ignore[index]
             output_file='report.md'
         )
 
