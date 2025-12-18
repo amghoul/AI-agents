@@ -1,16 +1,15 @@
 weather_task:
   description: >
-    Analyze the current weather conditions for the city of {city}.
-    Focus on temperature, humidity, and general sky conditions.
+    Search and report the current weather in {city}. 
+    Include temperature, sky conditions, and chance of rain.
   expected_output: >
-    A concise summary of the weather in {city}.
+    A concise weather report for the specified city.
   agent: weather_agent
 
 clothing_task:
   description: >
-    Based on the weather report from the weather_agent, recommend a complete outfit 
-    for someone living in {city}. Mention if they need an umbrella, specific layers, 
-    or sun protection.
+    Based on the weather report provided, recommend what the user should 
+    wear and what tools (like an umbrella) they should carry.
   expected_output: >
-    A list of clothing recommendations and accessories.
+    A list of recommended clothing and essential items to carry.
   agent: clothing_advisor
