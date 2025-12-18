@@ -12,14 +12,18 @@ class WeatherCrewai():
         return Agent(
             config=self.agents_config['weather_agent'],
             tools=[SerperDevTool()],
-            verbose=True
+            verbose=True,
+            # allow_delegation=False is often better for local LLMs
+            allow_delegation=False
         )
 
     @agent
     def clothing_advisor(self) -> Agent:
         return Agent(
             config=self.agents_config['clothing_advisor'],
-            verbose=True
+            verbose=True,
+            # allow_delegation=False is often better for local LLMs
+            allow_delegation=False
         )
 
     @task
