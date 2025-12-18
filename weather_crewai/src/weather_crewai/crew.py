@@ -36,6 +36,7 @@ class WeatherCrewai():
     def clothing_task(self) -> Task:
         return Task(
             config=self.tasks_config['clothing_task'],
+            output_file='report.md'
         )
 
     @crew
@@ -45,4 +46,5 @@ class WeatherCrewai():
             tasks=self.tasks,
             process=Process.sequential,
             verbose=True,
+            output_log_file="full_crew_log.txt" # Saves the "Thinking" process
         )

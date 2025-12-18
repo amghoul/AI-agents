@@ -1,4 +1,20 @@
 #!/usr/bin/env python
+import logging
+import os
+import warnings
+
+# 1. Disable CrewAI & LiteLLM Telemetry
+os.environ["OTEL_SDK_DISABLED"] = "true"
+os.environ["LITELLM_LOG"] = "CRITICAL"
+os.environ["SUPPRESS_LITELLM_LOGGING"] = "True"
+
+# 2. Silence standard Python logging for specific libraries
+logging.getLogger("litellm").setLevel(logging.CRITICAL)
+logging.getLogger("crewai").setLevel(logging.CRITICAL)
+
+# 3. Suppress all Python warnings (like the hardlink warning you saw earlier)
+warnings.filterwarnings("ignore")
+#########
 import sys
 import warnings
 
