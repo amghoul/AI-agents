@@ -46,5 +46,6 @@ class WeatherCrewai():
             tasks=self.tasks,
             process=Process.sequential,
             verbose=True,
+            tracing=True,
             output_log_file="full_crew_log.txt" # Saves the "Thinking" process
         )
